@@ -37,9 +37,9 @@ public class PChar extends PDataType<String> {
 
   public static final PChar INSTANCE = new PChar();
 
-  private PChar() {
-    super("CHAR", Types.CHAR, String.class, null, 1);
-  }
+    private PChar() {
+        super("CHAR", Types.CHAR, String.class, null, ORDINAL_CHAR);
+    }
 
     @Override
     public void pad(ImmutableBytesWritable ptr, Integer maxLength, SortOrder sortOrder) {

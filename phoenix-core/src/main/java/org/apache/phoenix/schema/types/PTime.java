@@ -30,9 +30,9 @@ public class PTime extends PDataType<Time> {
 
   public static final PTime INSTANCE = new PTime();
 
-  private PTime() {
-    super("TIME", Types.TIME, java.sql.Time.class, new PDate.DateCodec(), 10);
-  }
+    private PTime() {
+        super("TIME", Types.TIME, java.sql.Time.class, new PDate.DateCodec(), ORDINAL_TIME);
+    }
 
   @Override
   public byte[] toBytes(Object object) {

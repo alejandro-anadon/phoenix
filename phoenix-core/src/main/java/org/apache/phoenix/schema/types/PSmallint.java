@@ -29,9 +29,9 @@ public class PSmallint extends PWholeNumber<Short> {
 
   public static final PSmallint INSTANCE = new PSmallint();
 
-  private PSmallint() {
-    super("SMALLINT", Types.SMALLINT, Short.class, new ShortCodec(), 4);
-  }
+    private PSmallint() {
+        super("SMALLINT", Types.SMALLINT, Short.class, new ShortCodec(), ORDINAL_SMALLINT);
+    }
 
   @Override
     public Integer getScale(Object o) {

@@ -33,8 +33,8 @@ public class PDate extends PDataType<Date> {
     public static final PDate INSTANCE = new PDate();
 
     private PDate() {
-        super("DATE", Types.DATE, Date.class,
-                new DateCodec(), 11); // After TIMESTAMP and DATE to ensure toLiteral finds those first
+        // After TIMESTAMP and DATE to ensure toLiteral finds those first
+        super("DATE", Types.DATE, Date.class, new DateCodec(), ORDINAL_DATE);
     }
 
     @Override

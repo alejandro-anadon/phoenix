@@ -47,6 +47,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import org.apache.phoenix.thirdparty.com.google.common.primitives.Bytes;
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -576,6 +577,16 @@ public class PhoenixResultSet implements ResultSet, SQLCloseable {
     @Override
     public String getNString(String columnLabel) throws SQLException {
         throw new SQLFeatureNotSupportedException();
+    }
+
+
+    public UUID getUUID(int columnIndex) throws SQLException {
+        return (UUID) getObject(columnIndex);
+    }
+
+
+    public UUID getUUID(String columnLabel) throws SQLException {
+        return (UUID) getObject(columnLabel);
     }
 
     @Override

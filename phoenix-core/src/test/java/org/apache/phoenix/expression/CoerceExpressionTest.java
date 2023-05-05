@@ -24,6 +24,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.HashMap;
+import java.util.UUID;
 
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.phoenix.schema.types.PBinary;
@@ -48,21 +49,22 @@ public class CoerceExpressionTest {
     
 	private static final HashMap<Class, Object> map = new HashMap<Class, Object>();
 	
-	static {
-		map.put(String.class, "a");
-		map.put(Long.class, 1l);	
-		map.put(Integer.class, 1);
-		map.put(Short.class, 1);
-		map.put(Byte.class, 1);
-		map.put(Float.class, 1.00f);
-		map.put(Double.class, 1.00d);
-		map.put(BigDecimal.class, BigDecimal.ONE);
-		map.put(Timestamp.class, new Timestamp(0));
-		map.put(Time.class, new Time(0));
-		map.put(Date.class, new Date(0));
-		map.put(Boolean.class, Boolean.TRUE);
-		map.put(byte[].class, new byte[]{-128, 0, 0, 1});
-	}
+    static {
+        map.put(String.class, "a");
+        map.put(Long.class, 1l);
+        map.put(Integer.class, 1);
+        map.put(Short.class, 1);
+        map.put(Byte.class, 1);
+        map.put(Float.class, 1.00f);
+        map.put(Double.class, 1.00d);
+        map.put(BigDecimal.class, BigDecimal.ONE);
+        map.put(Timestamp.class, new Timestamp(0));
+        map.put(Time.class, new Time(0));
+        map.put(Date.class, new Date(0));
+        map.put(Boolean.class, Boolean.TRUE);
+        map.put(byte[].class, new byte[] { -128, 0, 0, 1 });
+        map.put(UUID.class, UUID.fromString("00000000-0000-0000-0000-000000000000"));
+    }
 	
 	@Test
     public void testCoerceExpressionSupportsCoercingIntToDecimal() throws Exception {

@@ -32,7 +32,7 @@ public class PBinary extends PBinaryBase {
     public static final PBinary INSTANCE = new PBinary();
 
     private PBinary() {
-        super("BINARY", Types.BINARY, byte[].class, null, 23);
+        super("BINARY", Types.BINARY, byte[].class, null, ORDINAL_BINARY);
     }
 
     @Override
@@ -187,9 +187,6 @@ public class PBinary extends PBinaryBase {
 
     @Override
     public String toStringLiteral(byte[] b, int offset, int length, Format formatter) {
-        if (length == 1) {
-            return Integer.toString(0xFF & b[offset]);
-        }
         return PVarbinary.INSTANCE.toStringLiteral(b, offset, length, formatter);
     }
 

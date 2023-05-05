@@ -92,6 +92,9 @@ public class PDataTypeFactory {
     types.add(PUnsignedTimestampArray.INSTANCE);
     types.add(PUnsignedTinyint.INSTANCE);
     types.add(PUnsignedTinyintArray.INSTANCE);
+    types.add(PUUID.INSTANCE);
+    types.add(PUUIDArray.INSTANCE);
+    types.add(PUUIDIndexable.INSTANCE);
     types.add(PVarbinary.INSTANCE);
     types.add(PVarbinaryArray.INSTANCE);
     types.add(PVarchar.INSTANCE);

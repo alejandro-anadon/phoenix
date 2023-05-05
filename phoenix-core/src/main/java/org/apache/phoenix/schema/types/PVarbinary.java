@@ -30,7 +30,7 @@ public class PVarbinary extends PBinaryBase {
     public static final PVarbinary INSTANCE = new PVarbinary();
 
     private PVarbinary() {
-        super("VARBINARY", Types.VARBINARY, byte[].class, null, 22);
+        super("VARBINARY", Types.VARBINARY, byte[].class, null, ORDINAL_VARBINARY);
     }
 
     @Override
@@ -140,15 +140,11 @@ public class PVarbinary extends PBinaryBase {
     @Override
     public String toStringLiteral(byte[] b, int o, int length, Format formatter) {
         StringBuilder buf = new StringBuilder();
-        buf.append('[');
+        buf.append("X'");
         if (length > 0) {
-            for (int i = o; i < o + length; i++) {
-                buf.append(0xFF & b[i]);
-                buf.append(',');
-            }
-            buf.setLength(buf.length()-1);
+            buf.append(Bytes.toHex(b, o, length));
         }
-        buf.append(']');
+        buf.append("'");
         return buf.toString();
     }
 
